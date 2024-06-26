@@ -1531,7 +1531,7 @@
                     <div class="banker">
                       <span class="middle"></span>
                       <div class="cube__number">
-                        <span class="number">7</span>
+                        <span class="number" id="banker__number">7</span>
                         <span class="cube">
                           <img src="dice (9).png" alt="dado" />
                           <img src="dice (6).png" alt="dado" />
@@ -1562,6 +1562,14 @@
                   </div>
 
                   <script>
+
+
+                    let numbersFromLocal =
+                      JSON.parse(localStorage.getItem("gameValues"));
+
+                    document.getElementById("banker__number").innerHTML = numbersFromLocal[0][0];
+
+                    
                     let contadorClicks = 0;
 
                     function aplicarPulsar() {
