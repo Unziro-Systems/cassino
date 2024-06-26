@@ -1562,47 +1562,6 @@
                   </div>
 
                   <script>
-                    let myModal = document.getElementById("my__modal");
-                    let closeModal = document.getElementById("close__modal");
-
-                    closeModal.addEventListener("click", () => {
-                      myModal.classList.remove("show__modal");
-                    });
-
-                    function showModal() {
-                      console.log("modal aberto");
-                      myModal.classList.add("show__modal");
-                    }
-
-                    function startGame() {
-                      //valores de input
-                      let numbersOne =
-                        document.getElementById("numbers__one").value;
-                      let numbersTwo =
-                        document.getElementById("numbers__two").value;
-
-                      //convertendoi para array
-
-                      let arrayOne = numbersOne.split(",");
-                      let arrayTwo = numbersTwo.split(",");
-
-                      let arrayFinal = [];
-
-                      arrayFinal.push(arrayOne);
-                      arrayFinal.push(arrayTwo);
-                      localStorage.setItem(
-                        "gameValues",
-                        JSON.stringify(arrayFinal)
-                      );
-
-                      //fechando modal
-                      myModal.classList.remove("show__modal");
-                    }
-
-                    document
-                      .getElementById("start__btn")
-                      .addEventListener("click", startGame);
-
                     let contadorClicks = 0;
 
                     function aplicarPulsar() {
@@ -1615,10 +1574,6 @@
                           "rotate 20s linear infinite";
                         trocarImagem();
                       }, 500);
-
-                      setTimeout(() => {
-                        showModal();
-                      }, 5000);
                     }
 
                     function trocarImagem() {
