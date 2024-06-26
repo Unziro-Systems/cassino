@@ -89,41 +89,52 @@
     </div>
 
     <script>
-      let myModal = document.getElementById("my__modal");
-      let closeModal = document.getElementById("close__modal");
+      let btnSave = document.getElementById("btn__save");
 
-      closeModal.addEventListener("click", () => {
-        myModal.classList.remove("show__modal");
-      });
-
-      function showModal() {
-        console.log("modal aberto");
-        myModal.classList.add("show__modal");
+      function clearInputs(){
+        //limpando valores de input
+        document.getElementById("numbers__one").value = "";
+        document.getElementById("numbers__two").value = "";
+  
       }
 
       function startGame() {
         //valores de input
         let numbersOne = document.getElementById("numbers__one").value;
         let numbersTwo = document.getElementById("numbers__two").value;
-
+  
+       
+       
+ 
         //convertendoi para array
 
         let arrayOne = numbersOne.split(",");
         let arrayTwo = numbersTwo.split(",");
+
+      
+        //validadção de quantidade de numeros
+
+        if(arrayOne.length !== arrayTwo.length){
+          alert("os campos devem ter a mesma quantidade de numeros");
+          return;
+        }
+         
+        if(arrayOne.length == 0 || arrayTwo.length == 0){
+          alert("preencha os campos !")
+          return;
+        }
 
         let arrayFinal = [];
 
         arrayFinal.push(arrayOne);
         arrayFinal.push(arrayTwo);
         localStorage.setItem("gameValues", JSON.stringify(arrayFinal));
-
-        //fechando modal
-        myModal.classList.remove("show__modal");
+        clearInputs();
+        alert("configuração salva");
       }
 
-      document
-        .getElementById("start__btn")
-        .addEventListener("click", startGame);
+      btnSave.addEventListener("click", startGame);
+
     </script>
   </body>
 </html>
